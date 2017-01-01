@@ -13,7 +13,7 @@ endif
 override INCLUDES+=-I./../MonaBase/include/
 LIBDIRS+=-L./../MonaBase/lib/
 LDFLAGS+="-Wl,-rpath,./../MonaBase/lib/,-rpath,/usr/local/lib/"
-LIBS+=-pthread -lMonaBase -lcrypto -lssl
+LIBS+=-pthread ./../MonaBase/lib/libMonaBase.ar ./../libs/libcrypto.a ./../libs/libssl.a
 ifeq ($(OS),Darwin)
 	LBITS := $(shell getconf LONG_BIT)
 	ifeq ($(LBITS),64)
