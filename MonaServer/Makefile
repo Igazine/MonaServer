@@ -9,7 +9,8 @@ CFLAGS+=-D_GLIBCXX_USE_C99 -std=c++11
 override INCLUDES+=-I./../MonaBase/include/ -I./../MonaCore/include/
 LIBDIRS+=-L./../MonaBase/lib/ -L./../MonaCore/lib/
 LDFLAGS+="-Wl,-rpath,./../MonaBase/lib/,-rpath,./../MonaCore/lib/,-rpath,/usr/local/lib/"
-LIBS+=-pthread -lMonaBase -lMonaCore -lcrypto -lssl -lluajit-5.1
+# LIBS+=-pthread -lMonaBase -lMonaCore -lcrypto -lssl -lluajit-5.1
+LIBS+=-pthread ./../MonaBase/lib/libMonaBase.ar ./../MonaCore/lib/libMonaCore.ar ./../libs/libluajit-5.1.a ./../libs/libcrypto.a ./../libs/libssl.a
 ifneq ($(OS),FreeBSD)
 	LIBS+= -ldl
 endif

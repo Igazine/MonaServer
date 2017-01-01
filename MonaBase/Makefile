@@ -15,7 +15,8 @@ LIBS+=-lcrypto -lssl
 # Variables fixed
 ifeq ($(OS),Darwin)
 	LIB=lib/libMonaBase.dylib
-	SHARED=-dynamiclib -install_name ./../MonaBase/$(LIB)
+	AR=lib/libMonaBase.ar
+	SHARED=-shared -install_name ./../MonaBase/$(LIB)
 else
 	LIB=lib/libMonaBase.so
 	AR=lib/libMonaBase.ar

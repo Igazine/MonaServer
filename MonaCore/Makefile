@@ -11,11 +11,13 @@ else
 endif
 override INCLUDES+=-I./../MonaBase/include/ -I./include/
 LIBDIRS+=-L./../MonaBase/lib/
-LIBS+=-lMonaBase -lcrypto -lssl
+# LIBS+=-lMonaBase -lcrypto -lssl
+LIBS+=./../libs/libcrypto.a ./../libs/libssl.a ./../MonaBase/lib/libMonaBase.ar
 
 # Variables fixed
 ifeq ($(OS),Darwin)
     LIB=lib/libMonaCore.dylib
+    AR=lib/libMonaCore.ar
 	SHARED=-dynamiclib -install_name ./../MonaCore/$(LIB)
 else
 	LIB=lib/libMonaCore.so
@@ -31,6 +33,8 @@ release:
 	@$(MAKE) -k $(OBJECT)
 	@echo creating dynamic lib $(LIB)
 	@$(GPP) $(CFLAGS) $(LIBDIRS) -fPIC $(SHARED) -o $(LIB) $(OBJECT) $(LIBS)
+	@echo creating static lib $(AR)
+	@ar rcs $(AR) $(OBJECT)
 
 debug:
 	mkdir -p tmp/Debug
