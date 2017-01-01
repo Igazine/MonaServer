@@ -20,6 +20,13 @@ A [32-bit Windows zipped package](https://sourceforge.net/projects/monaserver/fi
 
 We recommend you to clone the github version from the sources and to follow the [Installation instructions](http://www.monaserver.ovh/installation.html) for production use.
 
+macOS Static Build
+------------------
+Makefiles are updated to support static builds. Before compiling, put the following files in ./libs :
+* libcrypto.a
+* libluajit-5.1.a
+* libssl.a
+
 
 Versions
 -----------
