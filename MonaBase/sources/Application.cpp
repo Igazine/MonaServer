@@ -88,7 +88,7 @@ bool Application::init(int argc, const char* argv[]) {
 	
 	// configurations
 	string configPath;
-	if (loadConfigurations(String::Format(configPath,_file.parent(),_file.baseName(),".ini"))) {
+	if (loadConfigurations(String::Format(configPath,"./",_file.baseName(),".ini"))) {
 		setString("application.configPath", configPath);
 		setString("application.configDir", FileSystem::GetParent(configPath));
 	}
@@ -96,7 +96,7 @@ bool Application::init(int argc, const char* argv[]) {
 	// logs
 	Logs::SetLogger(*this);
 
-	string logDir(_file.parent());
+	string logDir("./");
 	logDir.append("logs");
 	string logFileName("log");
 
