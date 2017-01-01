@@ -27,6 +27,7 @@ Makefiles are updated to support static builds. Before compiling, put the follow
 * libluajit-5.1.a
 * libssl.a
 
+By compiling MonaBase, MonaCore and MonaServer the result will be a single static executable
 
 Versions
 -----------
